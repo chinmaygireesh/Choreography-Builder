@@ -1,0 +1,18 @@
+<div class="timeline">
+    <div class="beat-line">
+      <div *ngFor="let beat of beats" class="beat">
+        {{ beat }}
+      </div>
+    </div>
+  
+    <div class="steps-container">
+      <div 
+        *ngFor="let step of steps"
+        class="step"
+        [style.left]="calculateLeftPosition(step.startBeat)"
+        [style.width]="calculateWidth(step.beatDuration)">
+        {{ step.name }}
+      </div>
+    </div>
+  </div>
+  
