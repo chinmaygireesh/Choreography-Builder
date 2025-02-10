@@ -1,3 +1,4 @@
+<div>
 <div class="timeline">
     <div class="beat-line">
       <div *ngFor="let beat of beats" class="beat">
@@ -10,9 +11,14 @@
         *ngFor="let step of steps"
         class="step"
         [style.left]="calculateLeftPosition(step.startBeat)"
-        [style.width]="calculateWidth(step.beatDuration)">
+        [style.width]="calculateWidth(step.beatDuration)"
+        [style.background]="getRandomColor(step.name)"
+        (click)="openEditStepDialog(step)"> 
         {{ step.name }}
       </div>
     </div>
   </div>
+  <button mat-raised-button color="primary" (click)="openAddStepModal()">+ Add Step</button>
+</div>
+  
   

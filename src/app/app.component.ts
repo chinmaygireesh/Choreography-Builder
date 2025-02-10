@@ -18,8 +18,34 @@ export class AppComponent {
   loadChoreography() {
     const jsonString = `{
       "steps": [
-        { "id": "1", "name": "Step Touch", "startBeat": 1, "beatDuration": 2 },
-        { "id": "2", "name": "Spin", "startBeat":3 , "beatDuration": 3 }
+        {
+          "id": "step1",
+          "name": "Spin",
+          "startBeat": 0,
+          "beatDuration": 2,
+          "difficulty": "Medium",
+          "level": "Beginner",
+          "travel": "Small",
+          "direction": "Clockwise",
+          "energy": "High",
+          "groove": "Hip-Hop Bounce",
+          "refLink": "https://www.danceexample.com/spin",
+          "video": "https://www.youtube.com/watch?v=example"
+        },
+        {
+  "id": "step2",
+  "name": "Spin-2",
+  "startBeat": 2,
+  "beatDuration": 2,
+  "difficulty": "Medium",
+  "level": "Beginner",
+  "travel": "Small",
+  "direction": "Clockwise",
+  "energy": "High",
+  "groove": "Hip-Hop Bounce",
+  "refLink": "https://www.danceexample.com/spin",
+  "video": "https://www.youtube.com/watch?v=example"
+}
       ]
     }`;
 

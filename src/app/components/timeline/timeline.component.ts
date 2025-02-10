@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { ChoreographyService, ChoreographyStep } from '../../services/choreography.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddStepModalComponent } from '../add-step-modal/add-step-modal.component';
 
 @Component({
   selector: 'app-timeline',
@@ -15,7 +17,10 @@ export class TimelineComponent implements OnInit {
   @Input() bpm: number = 120;
   totalBeats = 32; // Adjust as needed
 
-  constructor(private choreographyService: ChoreographyService) {}
+  constructor(
+    private choreographyService: ChoreographyService,
+    private dialog: MatDialog
+            ) {}
 
   ngOnInit() {
     this.generateBeats();
@@ -35,4 +40,38 @@ export class TimelineComponent implements OnInit {
   calculateWidth(beatDuration: number): string {
     return `${(beatDuration / this.totalBeats) * 100}%`;
   }
+  openAddStepModal() {
+    const dialogRef = this.dialog.open(AddStepModalComponent, { width: '400px' });
+    /*
+    dialogRef.afterClosed().subscribe((result: ChoreographyStep) => {
+      if (result) {
+        this.steps.push(result);
+      }
+    });
+    */
+  }
+
+  openEditStepDialog(step: ChoreographyStep): void {
+    const dialogRef = this.dialog.open(AddStepModalComponent, {
+      width: '400px',
+      data: { ...step }  // ✅ Pass step data to modal for editing
+    });
+    /*
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // ✅ Find the index and update the step
+        const index = this.steps.findIndex(s => s.id === result.id);
+        if (index !== -1) {
+          this.steps[index] = result;
+        }
+      }
+    });
+    */
+  }
+  getRandomColor(stepName: string): string {
+    const hash = stepName.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const hue = hash % 360; // Keep within HSL range
+    return `hsl(${hue}, 70%, 60%)`; // Vibrant colors with good contrast
+  }
+  
 }

@@ -1,0 +1,92 @@
+<h2 mat-dialog-title>{{ defaultStepData.id ? 'Edit Step' : 'Add New Step' }}</h2>
+<mat-dialog-content>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Step Name</mat-label>
+    <input matInput [(ngModel)]="defaultStepData.name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Start Beat</mat-label>
+    <input matInput type="number" [(ngModel)]="defaultStepData.startBeat">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Beat Duration</mat-label>
+    <input matInput type="number" [(ngModel)]="defaultStepData.beatDuration">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Difficulty</mat-label>
+    <mat-select [(ngModel)]="defaultStepData.difficulty">
+      <mat-option value="Easy">Easy</mat-option>
+      <mat-option value="Medium">Medium</mat-option>
+      <mat-option value="Hard">Hard</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Level</mat-label>
+    <mat-select [(ngModel)]="defaultStepData.level">
+      <mat-option value="Beginner">Beginner</mat-option>
+      <mat-option value="Intermediate">Intermediate</mat-option>
+      <mat-option value="Advanced">Advanced</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Travel</mat-label>
+    <mat-select [(ngModel)]="defaultStepData.travel">
+      <mat-option value="None">None</mat-option>
+      <mat-option value="Small">Small</mat-option>
+      <mat-option value="Large">Large</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Direction</mat-label>
+    <mat-select [(ngModel)]="defaultStepData.direction">
+      <mat-option value="Clockwise">Clockwise</mat-option>
+      <mat-option value="Counterclockwise">Counterclockwise</mat-option>
+      <mat-option value="Forward">Forward</mat-option>
+      <mat-option value="Backward">Backward</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Energy</mat-label>
+    <mat-select [(ngModel)]="defaultStepData.energy">
+      <mat-option value="Low">Low</mat-option>
+      <mat-option value="Medium">Medium</mat-option>
+      <mat-option value="High">High</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Groove</mat-label>
+    <input matInput [(ngModel)]="defaultStepData.groove">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Reference Link</mat-label>
+    <input matInput [(ngModel)]="defaultStepData.refLink">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Video Link</mat-label>
+    <input matInput [(ngModel)]="defaultStepData.video">
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cancel</button>
+  <button 
+    *ngIf="defaultStepData.id" 
+    mat-button 
+    color="warn" 
+    (click)="deleteStep()">
+    Delete
+  </button>
+  <button mat-raised-button color="primary" (click)="save()">{{ defaultStepData.id ? 'Save' : 'Add' }}</button>
+</mat-dialog-actions>
