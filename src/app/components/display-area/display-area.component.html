@@ -1,22 +1,31 @@
-<div class="display-area" *ngIf="selectedStep">
-    <h3>Step Details</h3>
-    <p><strong>Name:</strong> {{ selectedStep?.name }}</p>
-    <p><strong>Start Beat:</strong> {{ selectedStep?.startBeat }}</p>
-    <p><strong>Duration:</strong> {{ selectedStep?.beatDuration }}</p>
-    <p><strong>Difficulty:</strong> {{ selectedStep?.difficulty }}</p>
-    <p><strong>Level:</strong> {{ selectedStep?.level }}</p>
-    <p><strong>Travel:</strong> {{ selectedStep?.travel }}</p>
-    <p><strong>Direction:</strong> {{ selectedStep?.direction }}</p>
-    <p><strong>Energy:</strong> {{ selectedStep?.energy }}</p>
-    <p><strong>Groove:</strong> {{ selectedStep?.groove }}</p>
-    <p><strong>Reference Link:</strong> <a [href]="selectedStep?.refLink" target="_blank">Click here</a></p>
-    <p><strong>Video:</strong> <a [href]="selectedStep?.video" target="_blank">Watch Video</a></p>
-  </div>
-  
-  <div class="video-container" *ngIf="getYouTubeEmbedUrl(selectedStep?.video)">
-    <iframe 
-        [src]="getYouTubeEmbedUrl(selectedStep?.video)" 
-        frameborder="0" 
-        allowfullscreen>
-    </iframe>
+
+<div class="parent">
+    <div class="child"> 
+        <div class="display-area" *ngIf="selectedStep">
+            <h3>Step Details</h3>
+            <p><strong>Name:</strong> {{ selectedStep?.name }}</p>
+            <p><strong>Start Beat:</strong> {{ selectedStep?.startBeat }}</p>
+            <p><strong>Duration:</strong> {{ selectedStep?.beatDuration }}</p>
+            <p><strong>Difficulty:</strong> {{ selectedStep?.difficulty }}</p>
+            <p><strong>Level:</strong> {{ selectedStep?.level }}</p>
+            <p><strong>Travel:</strong> {{ selectedStep?.travel }}</p>
+            <p><strong>Direction:</strong> {{ selectedStep?.direction }}</p>
+            <p><strong>Energy:</strong> {{ selectedStep?.energy }}</p>
+            <p><strong>Groove:</strong> {{ selectedStep?.groove }}</p>
+            <p><strong>Reference Link:</strong> <a [href]="selectedStep?.refLink" target="_blank">Click here</a></p>
+            <p><strong>Video:</strong> <a [href]="selectedStep?.video" target="_blank">Watch Video</a></p>
+        </div>
+    </div>
+    <div class="child">
+        <div class="video" *ngIf="getYouTubeEmbedUrl(selectedStep?.video)">
+        <iframe style="height: 400px;"
+            [src]="getYouTubeEmbedUrl(selectedStep?.video)" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+    </div></div>
 </div>
+
+
+
+  
