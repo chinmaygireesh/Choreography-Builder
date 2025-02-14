@@ -73,5 +73,31 @@ export class TimelineComponent implements OnInit {
     const hue = hash % 360; // Keep within HSL range
     return `hsl(${hue}, 70%, 60%)`; // Vibrant colors with good contrast
   }
+  downloadChoreoJson()
+  {
+    this.choreographyService.saveChoreographyToFile(this.steps);
+  }
+  loadChoreographyFromFile(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const reader = new FileReader();
+  
+      reader.onload = () => {
+        try {
+          const jsonString = reader.result as string;
+          this.choreographyService.loadChoreography(jsonString);
+        } catch (error) {
+          console.error("Error parsing JSON file", error);
+        }
+      };
+  
+      reader.readAsText(file);
+    }
+  }
+  selectStep(step: ChoreographyStep) {
+    this.choreographyService.selectStep(step)
+  }
   
 }

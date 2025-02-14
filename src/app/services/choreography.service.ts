@@ -24,9 +24,16 @@ export class ChoreographyService {
   private stepsSubject = new BehaviorSubject<ChoreographyStep[]>([]);
   steps$ = this.stepsSubject.asObservable();
 
+  private selectedStepSubject = new BehaviorSubject<ChoreographyStep | null>(null);
+  selectedStep$ = this.selectedStepSubject.asObservable();
+
+  selectStep(step: ChoreographyStep) {
+    this.selectedStepSubject.next(step);
+  }
+
   loadChoreography(jsonString: string) {
     const parsedData = JSON.parse(jsonString);
-    this.stepsSubject.next(parsedData.steps);
+    this.stepsSubject.next(parsedData);
   }
   addStep(newStep: ChoreographyStep) {
     const currentSteps = this.stepsSubject.value;
@@ -46,4 +53,18 @@ export class ChoreographyService {
     const currentSteps = this.stepsSubject.value.filter((step) => step.id !== stepId);
     this.stepsSubject.next(currentSteps);
   }
+  saveChoreographyToFile(steps: ChoreographyStep[]): void {
+    const choreographyData = JSON.stringify(steps, null, 2); // Converts array to formatted JSON
+    const blob = new Blob([choreographyData], { type: "application/json" });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    
+    a.href = url;
+    a.download = "choreography.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }
+  
 }

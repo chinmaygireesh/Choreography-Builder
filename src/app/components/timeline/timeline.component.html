@@ -13,12 +13,14 @@
         [style.left]="calculateLeftPosition(step.startBeat)"
         [style.width]="calculateWidth(step.beatDuration)"
         [style.background]="getRandomColor(step.name)"
-        (click)="openEditStepDialog(step)"> 
+        (click)="selectStep(step)"> 
         {{ step.name }}
       </div>
     </div>
   </div>
-  <button mat-raised-button color="primary" (click)="openAddStepModal()">+ Add Step</button>
+  <button mat-raised-button color="primary"  class="full-width-btn" (click)="openAddStepModal()">+ Add Steps</button>
+  <!-- <button mat-raised-button color="primary" (click)="downloadChoreoJson()">Download </button>
+  <input type="file" (change)="loadChoreographyFromFile($event)" accept=".json"> -->
 </div>
   
   

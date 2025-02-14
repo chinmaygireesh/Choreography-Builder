@@ -1,2 +1,29 @@
-<app-timeline [bpm]="120"></app-timeline>
-<button (click)="loadChoreography()">Load Choreography</button>
+
+
+<div class="layout-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+     <button mat-mini-fab color="primary" (click)="saveChoreographyToFile()">
+    <mat-icon>download</mat-icon>
+  </button>
+  <label class="file-upload-label">
+    <mat-icon>upload</mat-icon>
+    <input type="file" (change)="loadChoreographyFromFile($event)" accept=".json" class="file-input">
+  </label>
+  </div>
+
+  
+    <!-- Wide Side Menu (40%) -->
+    <div class="side-menu">Side Menu</div>
+    <!-- Display Area (50%) -->
+    <div class="display-area">Display Area
+      <app-display-area></app-display-area>
+    </div>
+  
+
+  <!-- Timeline (Bottom) -->
+  <div class="timelineContainer">
+    <app-timeline [bpm]="120"></app-timeline>
+    <!-- <button (click)="loadChoreography()">Load Choreography</button> -->
+  </div>
+</div>
