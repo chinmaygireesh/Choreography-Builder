@@ -1,22 +1,21 @@
 .display-area, .video {
-   
     flex: 1; /* Both divs take equal space */
     padding: 20px;
-    background: lightgray;
+    background: #1E1E1E; /* AE Dark Gray */
     border-radius: 8px;
     overflow: hidden;
+    color: #DADADA; /* AE Light Gray Text */
+}
 
-  }
-  
-  .display-area h3 {
+.display-area h3 {
     margin-top: 0;
-  }
-  .parent {
+    color: #DADADA; /* AE Light Gray */
+}
+
+.parent {
     display: flex;
-    
     align-items: center; /* Align items in the center */
     justify-content: center; /* Align vertically */
-    
     gap: 20px; /* Space between divs */
 }
 
@@ -24,57 +23,68 @@
     flex: 1;
     width: 80%;
     padding: 20px;
-    background: white;
+    background: #232323; /* AE Panel Gray */
     text-align: center;
     border-radius: 8px;
+    color: #DADADA;
 }
+
 video iframe {
     height: 400px;
     width: 100%;
     height: 100%;
     border-radius: 8px;
 }
+
 .button-session {
     display: flex;
-    gap: 10px;  /* Space between buttons */
+    gap: 10px; /* Space between buttons */
     justify-content: center;
-  }
-  
-  .add-btn, .edit-btn {
+}
+
+.add-btn, .edit-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 12px 20px;
     font-size: 18px;
-    width: 200px;  /* Long buttons */
+    width: 200px; /* Long buttons */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
-  }
-  
-  .add-btn {
-    background-color: #4CAF50;
     color: white;
-  }
-  
-  .add-btn i {
+}
+
+/* Add Button - AE Blue Accent */
+.add-btn {
+    background-color: #3A3DFF; /* AE Blue */
+}
+
+.add-btn i {
     margin-right: 8px;
-  }
-  
-  .add-btn:hover {
-    background-color: #45a049;
-  }
-  
-  .edit-btn {
-    background-color: #FFA500;  /* Orange color for edit */
-    color: white;
-  }
-  
-  .edit-btn i {
+}
+
+.add-btn:hover {
+    background-color: #2C2FFF; /* Slightly darker AE Blue */
+}
+
+/* Edit Button - AE Purple Accent */
+.edit-btn {
+    background-color: #892CDC; /* AE Purple */
+}
+
+.edit-btn i {
     margin-right: 8px;
+}
+
+.edit-btn:hover {
+    background-color: #751FB3; /* Darker AE Purple */
+}
+
+::ng-deep .mat-tooltip {
+    font-size: 14px;
+    background-color: #333; /* Dark background for the tooltip */
+    color: white; /* White text color */
   }
   
-  .edit-btn:hover {
-    background-color: #ff8c00;
-  }

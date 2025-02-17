@@ -1,0 +1,95 @@
+/* Dialog Title */
+.dialog-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1d1f21; /* Dark, neutral text */
+  }
+  
+  /* Dialog Content */
+  .dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #f9f9f9; /* Light background for clean feel */
+    padding: 16px;
+  }
+  
+  /* Form Field Styles */
+  .form-field {
+    width: 100%;
+  }
+  
+  /* Buttons (Cancel, Delete, Save) */
+  .cancel-button, .delete-button, .save-button {
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  /* Cancel Button */
+  .cancel-button {
+    background-color: #e0e0e0; /* Soft gray for cancel actions */
+    color: #5f6368; /* Text color */
+    border: 1px solid #ccc; /* Subtle border for separation */
+  }
+  
+  .cancel-button:hover {
+    background-color: #c6c6c6;
+  }
+  
+  /* Delete Button */
+  .delete-button {
+    background-color: #ff6f61; /* Soft red-orange for delete */
+    color: white;
+    border: 1px solid #ff4a35;
+  }
+  
+  .delete-button:hover {
+    background-color: #ff3c2b;
+    border-color: #e02b23;
+  }
+  
+  /* Save Button */
+  .save-button {
+    background-color: #007bff; /* AE-style blue for primary actions */
+    color: white;
+    border: 1px solid #0066cc; /* Darker blue border for contrast */
+  }
+  
+  .save-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #004080; /* Deep blue border */
+  }
+  
+  /* Mat-Select, Mat-Input-Element */
+  .mat-select, .mat-input-element {
+    font-size: 14px;
+    color: #333; /* Text color */
+  }
+  
+  .mat-select-placeholder, .mat-input-placeholder {
+    color: #888; /* Lighter gray for placeholders */
+  }
+  
+  /* Label Styling */
+  .mat-form-field .mat-label {
+    font-size: 14px;
+    color: #1d1f21; /* Dark neutral for labels */
+  }
+  
+  /* Background for the dialog */
+  .mat-dialog-container {
+    background-color: #fff; /* White background for the dialog */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for a floating effect */
+    border-radius: 8px; /* Rounded corners for a modern look */
+  }
+  
+  /* Select Options */
+  .mat-select-panel {
+    background-color: #ffffff; /* White background */
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for dropdown */
+  }
+  

@@ -6,12 +6,13 @@ import { DisplayAreaComponent } from './components/display-area/display-area.com
 import { MatIconModule } from '@angular/material/icon';
 import { take } from 'rxjs/operators';
 import { StepLibComponent } from './components/step-lib/step-lib.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,TimelineComponent,MatIconModule, DisplayAreaComponent,StepLibComponent],
+  imports: [RouterOutlet,TimelineComponent,MatIconModule, DisplayAreaComponent,StepLibComponent,MatTooltipModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
