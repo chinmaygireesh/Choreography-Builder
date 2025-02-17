@@ -1,0 +1,53 @@
+.step-lib-container {
+  
+    max-height: 90%; /* Adjust based on your need */
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding: 10px;
+
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #888 #f0f0f0; /* Thumb and track color */
+  }
+
+  .step-lib-container::-webkit-scrollbar {
+    width: 10px !important; /* Ensure it's visible */
+}
+
+.step-lib-container::-webkit-scrollbar-track {
+    background: #f0f0f0 !important; /* Light gray track */
+    border-radius: 10px;
+}
+
+.step-lib-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff758c, #ff7eb3) !important;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.step-lib-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff477e, #ff3b6f) !important;
+}
+
+.step-lib-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff477e, #ff3b6f); /* Darker on hover */
+}
+  
+  .step-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 tiles per row */
+    gap: 10px; /* Spacing between tiles */
+  }
+  
+  .step-tile {
+    background-color: #100f0f;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  

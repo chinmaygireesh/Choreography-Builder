@@ -4,6 +4,7 @@ import { ChoreographyService, ChoreographyStep } from '../../services/choreograp
 import { MatDialog } from '@angular/material/dialog';
 import { AddStepModalComponent } from '../add-step-modal/add-step-modal.component';
 
+
 @Component({
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',

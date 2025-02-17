@@ -5,12 +5,13 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import { DisplayAreaComponent } from './components/display-area/display-area.component';
 import { MatIconModule } from '@angular/material/icon';
 import { take } from 'rxjs/operators';
+import { StepLibComponent } from './components/step-lib/step-lib.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,TimelineComponent,MatIconModule, DisplayAreaComponent],
+  imports: [RouterOutlet,TimelineComponent,MatIconModule, DisplayAreaComponent,StepLibComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

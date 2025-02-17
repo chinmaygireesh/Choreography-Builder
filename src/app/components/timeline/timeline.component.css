@@ -44,6 +44,10 @@
     line-height: 20px;
     border-radius: 8px;
     border: 2px solid black;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
   }
   .full-width-btn {
     width: 100%;
