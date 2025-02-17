@@ -34,3 +34,47 @@ video iframe {
     height: 100%;
     border-radius: 8px;
 }
+.button-session {
+    display: flex;
+    gap: 10px;  /* Space between buttons */
+    justify-content: center;
+  }
+  
+  .add-btn, .edit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 18px;
+    width: 200px;  /* Long buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .add-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .add-btn i {
+    margin-right: 8px;
+  }
+  
+  .add-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .edit-btn {
+    background-color: #FFA500;  /* Orange color for edit */
+    color: white;
+  }
+  
+  .edit-btn i {
+    margin-right: 8px;
+  }
+  
+  .edit-btn:hover {
+    background-color: #ff8c00;
+  }

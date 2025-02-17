@@ -1,53 +1,54 @@
+/* Scrollable container */
 .step-lib-container {
-  
-    max-height: 90%; /* Adjust based on your need */
-    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 80%;
+    overflow-y: auto;
     padding: 10px;
+    background-color: #1E1E1E; /* AE Dark Gray */
+    color: #A0A0A0; /* Soft white for readability */
+}
 
-    scrollbar-width: thin; /* For Firefox */
-    scrollbar-color: #888 #f0f0f0; /* Thumb and track color */
-  }
-
-  .step-lib-container::-webkit-scrollbar {
-    width: 10px !important; /* Ensure it's visible */
+/* Scrollbar */
+.step-lib-container::-webkit-scrollbar {
+    width: 10px !important;
+    display: block;
 }
 
 .step-lib-container::-webkit-scrollbar-track {
-    background: #f0f0f0 !important; /* Light gray track */
+    background: #2A2A2A !important; /* Dark gray track */
     border-radius: 10px;
 }
 
 .step-lib-container::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #ff758c, #ff7eb3) !important;
+    background: linear-gradient(45deg, #3A3DFF, #892CDC) !important; /* AE blue-purple */
     border-radius: 10px;
     transition: background 0.3s;
 }
 
 .step-lib-container::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #ff477e, #ff3b6f) !important;
+    background: linear-gradient(45deg, #1E90FF, #7D00A8) !important; /* Brighter on hover */
 }
 
-.step-lib-container::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #ff477e, #ff3b6f); /* Darker on hover */
-}
-  
-  .step-grid {
+/* Grid layout */
+.step-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 tiles per row */
-    gap: 10px; /* Spacing between tiles */
-  }
-  
-  .step-tile {
-    background-color: #100f0f;
+    gap: 10px;
+}
+
+/* Step tile styling */
+.step-tile {
+    background-color: #282828; /* AE Dark Gray */
     padding: 15px;
     text-align: center;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    transition: transform 0.2s;
-  
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
-  
+    transition: transform 0.2s, box-shadow 0.3s;
+    color: #A0A0A0; /* Soft white for readability */
+}
+
+/* Hover effect */
+.step-tile:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(26, 115, 232, 0.5); /* AE blue glow */
+}

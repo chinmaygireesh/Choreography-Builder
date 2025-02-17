@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { ChoreographyService, ChoreographyStep } from '../../services/choreography.service';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIcon } from '@angular/material/icon';
 import { AddStepModalComponent } from '../add-step-modal/add-step-modal.component';
 
 
@@ -10,7 +11,7 @@ import { AddStepModalComponent } from '../add-step-modal/add-step-modal.componen
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.css'],
   standalone: true,
-  imports:[NgFor]
+  imports:[NgFor, MatIcon]
 })
 export class TimelineComponent implements OnInit {
   beats: number[] = [];
@@ -71,9 +72,13 @@ export class TimelineComponent implements OnInit {
   }
   getRandomColor(stepName: string): string {
     const hash = stepName.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
-    const hue = hash % 360; // Keep within HSL range
-    return `hsl(${hue}, 70%, 60%)`; // Vibrant colors with good contrast
+    const hue = (hash % 40) + 220; // Restrict hue to 220-260 (blue & purple shades)
+    const saturation = 40 + (hash % 20); // 40-60% saturation for subtlety
+    const lightness = 30 + (hash % 10); // 30-40% lightness for a dark UI feel
+  
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`; // Dark After Effects color scheme
   }
+  
   downloadChoreoJson()
   {
     this.choreographyService.saveChoreographyToFile(this.steps);
@@ -99,6 +104,23 @@ export class TimelineComponent implements OnInit {
   }
   selectStep(step: ChoreographyStep) {
     this.choreographyService.selectStep(step)
+  }
+
+  getStepIcon(stepName: string): string {
+    const iconMap: { [key: string]: string } = {
+      'The Wop': 'directions_run',
+      'Running Man': 'directions_walk',
+      'Mike Tyson': 'sports_mma',
+      'Gucci': 'emoji_people',
+      'Smurf': 'child_care',
+      'Steve Martin': 'theater_comedy',
+      'Robocop': 'android',
+      'Stomp': 'emoji_symbols',
+      'BK Bounce (Brooklyn Bounce)': 'music_note',
+      'Basketball': 'sports_basketball'
+    };
+  
+    return iconMap[stepName] || 'help'; // Default to 'help' if no icon found
   }
   
 }

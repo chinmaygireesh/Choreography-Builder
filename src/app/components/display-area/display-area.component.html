@@ -1,7 +1,8 @@
 
-<div class="parent">
+<div *ngIf="selectedStep">
+<div class="parent" >
     <div class="child"> 
-        <div class="display-area" *ngIf="selectedStep">
+        <div class="display-area" >
             <h3>Step Details</h3>
             <p><strong>Name:</strong> {{ selectedStep?.name }}</p>
             <p><strong>Start Beat:</strong> {{ selectedStep?.startBeat }}</p>
@@ -16,16 +17,25 @@
             <p><strong>Video:</strong> <a [href]="selectedStep?.video" target="_blank">Watch Video</a></p>
         </div>
     </div>
-    <div class="child">
-        <div class="video" *ngIf="getYouTubeEmbedUrl(selectedStep?.video)">
+    <div class="child" *ngIf="getYouTubeEmbedUrl(selectedStep?.video)">
+        <div class="video" >
         <iframe style="height: 400px;"
             [src]="getYouTubeEmbedUrl(selectedStep?.video)" 
             frameborder="0" 
             allowfullscreen>
         </iframe>
-    </div></div>
+    </div>
+    
 </div>
 
+</div>
+<br>
+<div class="button-session">
+    <button class="add-btn" (click)="onEditClick()" *ngIf = !selectedStep?.id ><i class="fa fa-plus">Add</i> </button>
+    <button class="edit-btn" (click)="onEditClick()" *ngIf = selectedStep?.id><i class="fa fa-pencil-alt">Edit</i> </button>
+    <!-- Add more buttons as needed -->
+</div>
+</div>
 
 
   

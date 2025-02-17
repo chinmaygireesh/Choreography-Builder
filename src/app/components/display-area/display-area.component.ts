@@ -2,6 +2,8 @@ import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChoreographyStep,ChoreographyService } from '../../services/choreography.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { MatDialog } from '@angular/material/dialog';
+import { AddStepModalComponent } from '../add-step-modal/add-step-modal.component';
 
 @Component({
   selector: 'app-display-area',
@@ -12,8 +14,27 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class DisplayAreaComponent {
   selectedStep: ChoreographyStep | null = null;
+  defaultStepData: ChoreographyStep 
+  =
+  {
+    id: 0,
+    name: "",
+    startBeat: 0,
+    beatDuration: 1,
+    difficulty: "Medium",
+    level: "Beginner",
+    travel: "Small",
+    direction: "Clockwise",
+    energy: "High",
+    groove: "Hip-Hop Bounce",
+    refLink: "",
+    video: ""
+  };
 
-  constructor(private _choreographyStep: ChoreographyService, private sanitizer: DomSanitizer ){
+  constructor(private _choreographyStep: ChoreographyService, 
+    private sanitizer: DomSanitizer ,
+    private dialog: MatDialog
+  ){
 
   }
   ngOnInit() {
@@ -34,5 +55,14 @@ export class DisplayAreaComponent {
     
     return null;
   }
+ 
+  onEditClick() {
+      const dialogRef = this.dialog.open(AddStepModalComponent, {
+        width: '400px',
+        data: { ...this.selectedStep }  // ✅ Pass step data to modal for editing
+      });
+    // Add your edit logic here
+  }
+   
 
 }

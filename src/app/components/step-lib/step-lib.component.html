@@ -1,8 +1,12 @@
+<h5 style="    margin-left: 10px;">Hip-Hop Steps</h5>
 <div class="step-lib-container">
-    <h5>Hip-Hop Steps</h5>
     <div class="step-grid">
-      <div class="step-tile" *ngFor="let step of steps">
-        <span (click)="openEditStepDialog(step)">{{ step.name }}</span>
+      <div 
+      (dblclick)="openEditStepDialog(step)"
+       class="step-tile"
+       (click) ="selectStep(step)"
+        *ngFor="let step of steps">
+        <span >{{ step.name }}</span>
       </div>
     </div>
   </div>

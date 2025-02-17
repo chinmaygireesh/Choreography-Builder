@@ -24,10 +24,14 @@ export class StepLibComponent {
     })
   }
   openEditStepDialog(step: ChoreographyStep): void {
+   // this.selectStep(step);
       const dialogRef = this.dialog.open(AddStepModalComponent, {
         width: '400px',
         data: { ...step }  // ✅ Pass step data to modal for editing
       });
+    }
+    selectStep(step: ChoreographyStep) {
+      this._choreoService.selectStep(step)
     }
 
 }
