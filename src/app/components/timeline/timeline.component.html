@@ -1,6 +1,6 @@
 <div>
 <div class="timeline">
-    <div class="beat-line">
+    <div class="beat-line" matTooltip=".......Beats Line......">
       <div *ngFor="let beat of beats" class="beat">
         {{ beat }}
       </div>
@@ -18,7 +18,7 @@
       </div>
     </div>
   </div>
-  <button mat-raised-button color="primary"  class="full-width-btn" (click)="openAddStepModal()">+ Add Steps</button>
+  <button mat-raised-button color="primary"  class="full-width-btn" (click)="openAddStepModal()">+ Add You Own Step</button>
   <!-- <button mat-raised-button color="primary" (click)="downloadChoreoJson()">Download </button>
   <input type="file" (change)="loadChoreographyFromFile($event)" accept=".json"> -->
 </div>

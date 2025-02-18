@@ -4,6 +4,7 @@ import { ChoreographyService, ChoreographyStep } from '../../services/choreograp
 import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { AddStepModalComponent } from '../add-step-modal/add-step-modal.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { AddStepModalComponent } from '../add-step-modal/add-step-modal.componen
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.css'],
   standalone: true,
-  imports:[NgFor, MatIcon]
+  imports:[NgFor, MatIcon, MatTooltipModule]
 })
 export class TimelineComponent implements OnInit {
   beats: number[] = [];
